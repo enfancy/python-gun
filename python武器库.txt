@@ -1,0 +1,658 @@
+ 模块
+__name__value is:{}
+使用python __name__ __main__
+import 中
+__name__ value is course
+
+python 必选参数  可变参数
+def con(ip,*port)    *port 可以传很多
+关键字参数 **kw
+
+在给函数传值时
+**kw={"device":"eth0","proto":"static"}
+*port=(80,443,23,22)
+connect(ip,*port,**kw)
+
+print("{0} is year {1} years old".format('fancy','18'))
+
+json 序列化
+import pickle
+courses = {1:’linux'}
+with open('./courses.data','wb') as file:
+  pickle.dump(courses,file)
+with open('./courses.data','rb') as file:
+  new_courses = pickle.load(file)
+import json
+json.dumps(courses)
+转化为了json格式字典
+
+csv文件读取
+脱裤
+import csv 
+with open('test.csv') as f:
+      data = list(csv.reader(f))
+with open('test_w.csv','w') as f:
+     csv.writer(f).writerows(data)
+
+python 面向对象的编程
+魔法方法
+class Dog:
+      def __init__(self,name):
+          self.name = name
+
+      def __repr__(self):
+           return 'Dog: {}'.formatself.name）
+
+dog = Dog('xiaohei')
+print(dog)
+print(dog.name)
+
+封装
+class Dog(object):
+       def __init__(self,name):
+           self.name = name 
+       
+       def get_name(self):
+              return self.name
+ 
+       def set_name(self,value):
+              self.name = value
+      
+        def bark(self):
+              print(self.get_name()+'is making sound wowowowo')
+
+class Cat(object):
+         def __init__(self.name):
+                   self.name = name
+ 
+         def get_name(self):
+                   return self.name
+            
+         def set_name(self,value):
+                    self..name = value
+
+
+继承 
+Class Animal(self):
+   def __init__   
+
+
+
+class Dog(Animal)
+class Cat(Animal)
+
+类属性定义方法
+class Animal(object):
+        owner = 'wuyue'
+        def __init__(self,name):
+            self.name = name
+   
+         
+        def get_owner(cls):
+           return cls.owner
+        
+         @classmethod
+         def set_owner(cls,name):
+             cls.owner = name
+
+print(Animal.owner)
+Animal.set_owner('chenchen')
+print(Animal.owner)
+
+装饰器
+@log
+def fancy()
+fancy函数就会变成参数传入另一个函数中被执行
+在python网络编程中会使用
+迭代器
+
+__iter__
+__getitem__
+
+
+生成器
+生成器里面因为有__next__所以可以迭代
+
+python高级特性
+高阶函数
+def f(func):
+     pass
+
+sorted函数
+filter函数
+map函数
+sorted()函数从小到大排序
+sorted(l3,key=abs)
+filter(a,b) a为函数 b为被处理的数据列表
+isinstance(1,int)  ture
+
+b = ['hello',1,3.14,abs]
+def a(i):
+     if isinstance(i,int):
+            return Ture
+     else:
+          return False
+list(fliter(a,b))
+[1]
+
+filter(a,b)
+
+map(a,b) a为函数 b为可迭代对象
+list(map(a,b))
+[返回经过a函数计算的列表]
+
+匿名函数
+lambda
+double = lambda x: x * 2
+double(5)  10
+
+list(map(lambda i: i**2,b))
+利用map使用匿名函数
+
+
+偏函数
+Python 的functools 模块提供的
+functools.partial 把函数的某些参数固定住
+
+from functools import partial
+def at_will(i,m=2)
+	return i**m
+at_will4 = partial(at_will.m=4)
+
+at_will4 = partial(at_will,m=4)
+at_will4(3)
+at_will4(3,m=2)
+
+切片(取出一个范围)
+letters['a','b','c','d']
+letters[1:3]
+0,1,2,3
+-4,-3,-2,-1
+
+利用切片函数进行复制
+
+列表解析式
+子典  d.items()  items 将字典变成一个可迭代对象
+元组拆包
+a = ('hllow','world')
+b,c = a
+b = 'hello'
+c = 'world'
+t = ('fancy','18')
+print('i am {},i am {} years old.'.format(*t))
+
+多进程
+利用计算机的多核资源执行多个命令
+子线程创建
+p = Process(target=hello,args=('world',))
+子进程创建 hello是函数 world是传入参数
+p.start()
+p.join()
+#塞入主进程直到子进程终止‘
+
+进程数的提高效率的提高
+多进程的工作
+process_list
+      
+进程通信
+pipe
+
+from multiprocessing import pipe
+
+conn1,conn2 = pipe()
+def Send()
+    data = 'hello world' 
+    conn1.send(data)
+    print('Send Data: {}'.format(data))
+
+def recv()                                                    
+    data.conn2.recv()
+    print('Receive Data: {}'.format(data))
+
+def main()
+    Process(target=send).start
+    Process(target=recv).start
+
+if __name__=='__main__':
+    main()
+
+
+队列通信方式
+
+进程锁
+Lock
+进程池
+Pool
+多线程
+
+os模块
+操作系统相关操作
+datetime 时间日期相关计算
+time 处理时间打印当前时间 强制挂起当前进程
+requests 网络请求标准库
+base64 字符二进制数据
+copy 复制可变数据类型
+os.mkdir()
+os.rmdir()
+os.rename()
+from datetime import date,datetime
+date.today()
+datetime.now()
+from time
+time.time()
+time.sleep()
+
+src时间校验漏洞 500大洋
+app程序取自本机 修改本机时间获取永久会员
+
+requests 模块
+copy模块
+import base64 模块
+copy.copy 拷贝值
+l1 = l2 赋值地址
+configparser 读取配置文件
+collections  提供一系列特殊容器的类
+配制文件 .ini  json xml yaml  里面蕴含着敏感文件
+
+先写一个配置文件 
+在 python 中 导入 configparser 模块
+在创建一个实例化对象  config = ConfigParser()
+
+config.read('wy.ini',encoding='UTF-8')
+config.sections() 打印出里面的模块
+config.options()  选择模块打印里面的key
+config.items() 选择模块打印里面的键值对
+config.get()  传入两个参数 选择模块 和传入key  得到value
+
+ 件数据传入文件  
+config.add_section('permission')
+config.set('permission','isMumber','True')
+with open('my.ini','w',encoding='utf-8') as f:
+	config.write(f)
+
+collections 提供一系列特殊容器类
+
+collections.abc    Iterator  Generator   OrdereDict
+import json 
+>>> json.dumps(d)
+'{"apple": 1, "google": 2, "ms": 3, "alibaba": 4}'
+>>> from collections import namedtuple
+>>> Print = namedtuple('Point',['x','y'])
+>>> p = Print(10,12)
+>>> p.x
+10
+
+项目一：暴力破解密码自动阻断
+re 正则表达式模块
+subprocess模块
+
+re模块：
+匹配普通字符
+findall函数（海王函数）
+
+功能：
+找到匹配到的所有子串并返回一个列表 找不到返回空
+
+search函数（一心一意）
+功能：
+扫描整个字符串，并且其返回第一个，如果没有成功匹配就返回空
+
+re.search('hello',s)
+<re.Match object; span=(0, 5), match='hello'>
+>>> m = re.search('hello',s)
+>>> m.group()
+'hello'
+>>> m.span()
+(0, 5)
+匹配元字符
+\d  获取所有数字0-9
+\D 匹配非数字
+\w 匹配所有单词字符，包括大小写 数字 下划线 中文
+\W 匹配剩下的 空格换行符 特殊字符
+re.findall('\d',s)
+匹配字符集
+字符的集合 用【】表示 字符集内用“^”表示
+\d=[0-9]
+\D=[^0-9]
+\w=[a-zA-Z_0-9]和中文
+' '空格 \n换行符 \t制表符 \r回车符
+使用\s来匹配他们
+re.findall('[]'{})大括号里面的是匹配标定字符数量
+* 特殊数量符号：
+* 匹配前一个字符0or无限次
++                           1or无限次
+hello* 匹配o字符
+（）字符组
+把字符用（）将匹配成的字符串分组
+匹配参数模式
+findall方法其实他有第三个参数
+re.I 忽略大小写
+re.S   匹配换行符
+
+subprocess模块
+项目需求： 执行命令并将输出劫持实现日志的监控
+用于启动新的进程的模块 可以用于执行外部命令 获取进程的输出向进程发送输入和等待进程的结束
+
+多进程协同  三种方式
+1.os.system函数
+阻塞式
+2.multiprocessing模块
+使用场景 密集型的计算
+
+3.subprocess模块
+
+subprocess.run  执行指定命令 等待命令执行完成后返回的第条状态
+subprocess.call 执行执行的命令 返回命令执行的状态
+subprocess.check_call
+subprocess.getoutput
+
+args 传入命令 必须是个字符串  字符串参数列表
+stdin stdout stderr 标准输入输出错误
+timeout 设置命令超时
+shell 值为bool 如果参数为ture 
+
+利用python 访问系统
+subprocess.run(["ls"])
+subprocess.Popen为上吗方法的底层
+process = subprocess.Popen(
+cmd,
+shell= True,
+stdout=subprocess.PIPE,
+stdin = subprocess.PIPE,
+stderr = subprocess.PIPE
+)
+shell 打开终端 linux
+   windows 是cmd 
+stdout =subprocess.PIPE 如果该命令执行成功 那么将该命令的标准输出放入管道
+
+终端输入命令分两种  
+直接终端输入
+直接进入环境  比如python
+obj = subprocess.PIPE(["python"],stdin = subprocess.PIPE,stdout = subprocess.PIPE,stderr = subprocess.PIPE,univeral_newlines=True)
+obj.stdin.write(print(1)\n)
+obj.stdin.close()
+cmd_out = obj.stdout.read()
+obj.stdout.close()  输出到终端上为标准输出
+cmd_err = obj.stderr.read()
+obj.stderr.close()
+
+print(cmd_out)
+print(cmd_err)
+obj = subprocess.Popen("ls \tmp",shell=True,stdout=process.PIPE)
+obj.stdout.readlines()
+
+linux  日志分析
+var/log/cron  日志任务 记录系统的定时任务
+var/log/cups 打印信息的日志
+var/log/message  系统重要信息的日志
+var/log/btmp  登录失败
+var/log/lastlog  最后一次登录
+var/log/wtmp   成功登录记录
+/var/log/secure 登录日志
+var/log/utmp  目前登录用户的信息
+hosts黑名单  /etc/hosts.deny
+hosts白名单 /etc/hosts.allow
+
+Accpeted password for root 登录成功
+Failed password for root 登录失败
+
+linux 日志分析技巧
+find   grep awk sed cat tail head 
+tail -f messages
+tail -100f messages 
+tali -f +5 messages
+分析日志文件的时候使用
+cat /etc/passwd | grep -C 5 "root"
+取root 附近的前面5行和后面 5行
+cat /etc/passwd | grep -B 5 "root"
+前面5行
+
+案例
+从第10行开始显示5行
+cat /etc/passwd | tail -n +10 | head -n 5 显示10到15行
+打印第一个位置的信息 只显示/etc/passwd下的账户
+cat /etc/passwd | awk -F ':' '{print $1}'
+
+/var/log/secure 
+定位有多少个ip在爆破主机的root账号
+grep "Failed password for root" /var/log/secure | awk "{print $11}" | sort | uniq -c | sort -nr
+登录成功的ip
+grep "Accepted password for root" /var/log/secure | awk "{print $11}" | sort | uniq -c | sort -nr
+Linux 黑白名单的限制
+封禁
+/etc/hosts.deny
+/etc/hosts.allow
+
+配置格式
+服务： 地址： 允许/封禁
+服务： ssh ftp smb telnet 关键字(all)
+禁止or允许所有服务
+all:192.168.0.10:deny(全封)
+all:192.168.0.10:allow(加白)
+192.168.0.10/24(c段)
+192.168.0.*or空
+
+ssh的密码爆破
+先准备两个字典
+hydra -l root(-L user.txt 爆破用户字典) -P 6000.txt -vV -e ns 172.30.230.100 ssh
+
+项目的逻辑
+实现暴力破解的自动阻断
+1.grep "Failed password for root" /var/log/secure | awk '{print $11}' | sort | uniq -c | sort -nr
+2.对安全日志进行实时的监控
+3.解析日志每一行的内容  找出正在爆破的ip
+4.设置一个阈值 超过阈值之后直接封禁 （把它的ip方入黑名单）
+
+---------------------------------------------项目
+#!/usr/bin/env python
+
+import re
+import subprocess
+import time
+
+logFile = '/var/log/secure'
+hostDeny = '/etc/hosts.deny'
+password_wrong_num = 5
+
+def getDenies():
+    deniedDict = {}
+    list = open(hostDeny).readlines()
+    for ip in list:
+        group = re.search(r'(\d+\.\d+\.\d+\.\d+)',ip)
+        if group:
+            deniedDict[group[1]] = '1'
+    return deniedDict
+
+def monitorLog(Logfile):
+    tempIP={}
+    deniedDict = getDenies()
+    popen = subprocess.Popen('tail -f '+logFile,stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=subprocess.PIPE,univeral_newlines=True)
+    while True:
+        time.sleep(0.1)
+        line = popen.stdout.readline().strip()
+        if line:
+            group = re.search('Invalid user \w+ from (\d+\.\d+\.\d+\.\d+)',str(line))
+            if group and not deniedDict.get(group[1]):
+                subprocess.getoutput('echo \'sshd:{} >> {}'.format(group[1]),hostDeny)
+                deniedDict[group[1] = '1'
+                print(' add ip :{} to hosts.deny for invalid user'.format(group[1]))
+                continue
+            group = re.search('Failed password for \w+ from (\d+\.\d+\.\d+\.\d+)',str(line))
+            if group:
+                ip = group[1]
+                if not tempIP.get(ip)
+                    tempIP[ip] = 1
+                else 
+                    tempIP[ip] = tempIP[ip]+1
+                if tempIP[ip] > password_Wrong_num and not deniedDict.get(ip):
+                    del tempIP[ip]
+                    subprocess.getoutput('echo \'sshd:{} >> {}'.format(ip,hostDeny))
+                    deniedDict[ip] = '1'
+                           print('add ip :{} to hosts.deny for invalid user'.format(group[1]))
+
+if __name__=='__main__':
+    monitorLog(logFile)
+----------------------------------------------------------项目结束
+
+
+flask 模块
+web 为框架
+有很大的自由度   外部扩展多
+
+Python虚拟环境
+pip --version
+pip install flask 
+pip install pipenv
+vim app.py 
+from flask import Flask
+
+#初始化
+Flask(__name__)
+
+@app.route('/')
+@app.route('/hello')
+def index():
+    return 'Hello World!'
+
+@app.route('/a')
+def add():
+	return 1+1=2
+
+@app.rou
+
+if __name__=='__main__':
+	app.run(debug=True)
+不用改了
+
+
+
+路由和视图函数
+@app.route('/user/<username>')
+def user_index(username):
+	return 'Hello {}'.format(username)
+
+url重定向
+url_for()   构造动态的url
+url_for('函数名'，命名参数，其他参数)
+
+@app.route(<username>)
+def hello(username):
+	if username == 'handsomefancy':
+		return 'Hello {}'.format(username)
+	else:
+		return redirect(url_for(index))
+
+模板渲染函数
+render_template 
+from flask import render_template
+
+return render_template('user_index.html',username=username)
+在 别的目录下vim 一个
+<h1>hello,{{username}}!</h1>
+
+get post
+from flask import request
+@app.route('/register',method=['GET','POST'])
+def register():
+	print('method:',request.method)
+	print('password:',request.form.get('password'))
+	print('name:',request.form['name'])
+	print('hobbies:',request.form.getlist('hobbies'))
+	print('age:',request.form.get('age',default=18))
+return 'register successed!'
+
+import requests
+
+user_info = {}
+
+r = requests.post("http://127.0.0.1:5000/register",data = user_info)
+
+print(r.text)
+
+
+
+get  
+@app.route('/user/<password>')
+def user_password(password):
+	print('User-Agent',request.headers.get('User-Agent'))
+	
+
+session cookie
+@ 
+
+error 404
+@app.route('/user/<username>')
+def user_index(username):
+	if username == 'invalid'
+		abort(404)
+	else:
+		return render_template('user_index.html',username=username)
+
+@app.errorhandler(404)
+def not_found(error):
+	return render_template('404.html'),404	
+
+html
+结构化网页内容
+显示和格式化文本
+<p></p>段落
+</br>  换行   
+&nbsp: 前面出现空格
+<  用字符实体  &lt; &gt;
+<div></div> 和段落区别是段落间没有间隔
+段内标签  <em>山竹</em>  显示倾斜
+<i></i> 倾斜
+<b></b>  加粗
+<strong></strong>加粗
+<span></span> 结合css
+图像和路径(图像加alt属性)加载失败时显示
+<img src="images/1.jpg" alt="净化路线">
+html链接
+<a href="#">顶部</a> 跳转到页面的顶部
+<a href="http://www.baidu.com" title="百度一下">百度</a>
+<a href="http://www.baidu.com" target="_blank(_salf默认)" rel="noopener noreferrer">新开一个</a>
+
+点击图片跳转   <><im><>
+页面内跳转
+<a href="#">顶部</a>
+<a href="#">顶部</a>
+<h1 id="m1">111111</h1> 锚点 跳转
+<a href="#m1">跳转到标题1</a>
+<h2 id="m2">222222</h2>
+<a href="#m2">跳转到标题2</a>
+<a href="javascript:;">联系我们</a>
+列表 <ol>
+<li>列表文字1</li> 1.
+li*5
+</ol>(有序列表)
+<ul></ul>(无序列表)
+(定义列表) <dl>
+<dt>html</dt>
+<dd>负责页面的结构</dd>
+<dt>css</dt>
+<dd>负责页面的展示效果</dd>
+<dt>javascript</dt>
+<dd>负责页面的行为</dd>
+</dl>
+html表格
+<table border="1" width="300" height="10">
+<tr>
+<th>序号</th>
+</tr>表示表格中的一行
+<td align="center",valign="top">1</td>表示一行中一个单元格
+</table>
+
+快速创建方法
+table>(tr>td*5)*4
+<td clospen="5"></td>
+<td rowspen="5"></td>
+
+<form action="" method="post id="form1"">
+input type="text/email/url/password/submit" placeholder="请填写wx号"
+</form>
+
+渗透测试流程全覆盖
+信息收集
+子域名  敏感路径 端口 c段
+git创建远程仓库
+
