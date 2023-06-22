@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+
+import requests
+
+def domain_scan(d_name,sub_names):
+    for sub in sub_names:
+    url = f"https://{sub}.{d_name}"
+    
+    try:
+        request.get(url)
+        print(f"[*]{url}")
+    except:
+        print("error")
+ 
+if __name__=="__main__":
+    with open(subdomain_list.txt) as file:
+        sub_name = file.read()
+        sub_dom = sub_name.splitlines()
+        print("文件中有多少个域名：{}".format(len(sub_dom)))
+        print("在列表中的域名："+sub_dom)
+    domain_name = input("请输入要查询的域名：")
+    
+    domain_scan(domain_name,sub_dom)
